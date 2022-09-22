@@ -23,8 +23,26 @@ class CategoriesCreate(SuccessMessageMixin,CreateView):
     template_name="admin_templates/category_create.html"
 
 
-class CategoriesCreate(SuccessMessageMixin,UpdateView):
+class CategoriesUpdate(SuccessMessageMixin,UpdateView):
     model=Categories
     success_message="Category Updated!"
     fields="__all__"
+    template_name="admin_templates/category_update.html"
+
+
+class SubCategoriesListView(ListView):
+    model= Categories
+    template_name="admin_templates/category_list.html"
+
+class SubCategoriesCreate(SuccessMessageMixin,CreateView):
+    model=Categories
+    success_message="Category Added!"
+    fields="__all__"
     template_name="admin_templates/category_create.html"
+
+
+class SubCategoriesUpdate(SuccessMessageMixin,UpdateView):
+    model=Categories
+    success_message="Category Updated!"
+    fields="__all__"
+    template_name="admin_templates/category_update.html"
