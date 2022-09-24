@@ -1,0 +1,53 @@
+{% extends 'admin_templates/base.html' %}
+
+{% block title %}
+Sub Category
+{% endblock title %}
+
+{% block custom_css %}
+{% endblock custom_css %}
+
+{% block page_title %}
+Sub Category List
+{% endblock page_title %}
+
+{% block page_content %}
+<div class="row">
+    {% for subcategory in subcategories_list %}
+
+
+        <div class="col-12 col-sm-6 col-md-6 col-lg-3">
+          <article class="article article-style-b">
+            <div class="article-header">
+              <div class="article-image" data-background="/media/{{subcategory.thumbnail}}">
+              </div>
+              <div class="article-badge">
+                <div class="article-badge-item bg-danger"><i class="fas fa-fire"></i> {{subcategory.title}} </div>
+              </div>
+            </div>
+            <div class="article-details">
+              <div class="article-title">
+                <p>{{subcategory.description}}</p>
+                <p>Url Slug : {{subcategory.url_slug}}</p>
+                <p><span class="bagde badge-primary">{{subcategory.category.id.title}}</span></p>
+              <div class="article-cta">
+                <label class="custom-switch mt-2" style="float:left">
+                    <input type="checkbox" name="custom-switch-checkbox" class="custom-switch-input" {% if subcategory.is_active == 1 %}checked{% endif %} >
+                    <span class="custom-switch-indicator"></span>
+                    <span class="custom-switch-description">Active</span>
+                  </label>
+                <a href="{% url 'subcategory_update' subcategory.id %}"class="btn btn-warning"> EDIT <i class="fas fa-chevron-right"></i></a>
+              </div>
+            </div>
+          </article>
+        </div>
+        
+
+    {% endfor %}
+</div>
+
+{% endblock page_content %}
+
+
+{% block custom_js %}
+{% endblock custom_js %}

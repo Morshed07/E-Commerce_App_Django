@@ -31,14 +31,14 @@ class CategoriesUpdate(SuccessMessageMixin,UpdateView):
 
 
 class SubCategoriesListView(ListView):
-    model= Categories
-    template_name="admin_templates/category_list.html"
+    model= SubCategories
+    template_name="admin_templates/sub_category_list.html"
 
 class SubCategoriesCreate(SuccessMessageMixin,CreateView):
     model=Categories
-    success_message="Category Added!"
+    success_message=" Sub Category Added!"
     fields="__all__"
-    template_name="admin_templates/category_create.html"
+    template_name="admin_templates/sub_category_create.html"
 
 
 class SubCategoriesUpdate(SuccessMessageMixin,UpdateView):
