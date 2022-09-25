@@ -27,16 +27,16 @@ Sub Category List
             </div>
             <div class="article-details">
               <div class="article-title">
+                <p><span class="bagde badge-primary">{{subcategory.category_id.title}}</span></p>
                 <p>{{subcategory.description}}</p>
-                <p>Url Slug : {{subcategory.url_slug}}</p>
-                <p><span class="bagde badge-primary">{{subcategory.category.id.title}}</span></p>
+                <p>Url Slug : {{category.url_slug}}</p>
               <div class="article-cta">
                 <label class="custom-switch mt-2" style="float:left">
                     <input type="checkbox" name="custom-switch-checkbox" class="custom-switch-input" {% if subcategory.is_active == 1 %}checked{% endif %} >
                     <span class="custom-switch-indicator"></span>
                     <span class="custom-switch-description">Active</span>
                   </label>
-                <a href="{% url 'subcategory_update' subcategory.id %}"class="btn btn-warning"> EDIT <i class="fas fa-chevron-right"></i></a>
+                <a href="{% url 'sub_category_update' subcategory.id %}"class="btn btn-warning"> EDIT <i class="fas fa-chevron-right"></i></a>
               </div>
             </div>
           </article>

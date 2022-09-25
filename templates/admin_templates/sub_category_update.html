@@ -29,14 +29,16 @@ Sub Category Create
                     <label>{{ field.label }}</label>
                     {% if field.field.widget.input_type != "select" %}
 
-                    <input type="{{ field.field.widget.input_type }}" name={{field.name}} id="{{field.name}}" class="form-control" value="{{ field.value }}">
+                    <input type="{{ field.field.widget.input_type }}" name={{field.name}}
+                    id="{{field.name}}" value="{{ field.value }}" 
+                    class="form-control">
                     {% endif %}
                     {% if field.field.widget.input_type == "select" %}
 
                     <select  name={{field.name}} id="{{field.name}}" class="form-control">
                     
                     {% for id,value in field.field.choices %}
-                    <option value="{{id}}">{{value}}></option>
+                    <option value="{{id}}" {% if id == field.value %} selected{% endif %} >{{value}}></option>
                     {% endfor %}
                     </select>
                     {% endif %}
@@ -47,7 +49,19 @@ Sub Category Create
                         {{field.errors}}
                      </div>
                     {% endif %}
+                    
                 </div>
+
+                {% if field.field.widget.input_type == 'file' %}
+                <div class="form-gorup"> 
+                    <label>Current {{ field.label }}</label> <br>
+                    <div class="card">
+                        <div class="card-body">
+                            <img src="/media/{{field.value}}"style="height:250px" alt="">
+                        </div>
+                    </div> 
+                
+                    {% endif %}
                 {% endfor %}
            
             
