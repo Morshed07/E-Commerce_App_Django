@@ -41,7 +41,7 @@ class Categories(models.Model):
     title=models.CharField(max_length=255)
     url_slug=models.CharField(max_length=255)
     thumbnail=models.ImageField()
-    desciption=models.TextField()
+    description=models.TextField()
     created_at=models.DateTimeField(auto_now_add=True)
     is_active=models.IntegerField(default=1)
 
@@ -59,7 +59,7 @@ class SubCategories(models.Model):
     title=models.CharField(max_length=255)
     ulr_slug=models.CharField(max_length=255)
     thumbnail=models.ImageField()
-    desciption=models.TextField()
+    description=models.TextField()
     created_at=models.DateTimeField(auto_now_add=True)
     is_active=models.IntegerField(default=1)
 
