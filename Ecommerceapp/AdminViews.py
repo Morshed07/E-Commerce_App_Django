@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
-from django.views.generic import ListView,CreateView,DetailView,UpdateView
+from django.views.generic import ListView,CreateView,DetailView,UpdateView,View
 from .models import Categories,SubCategories,CustomUser,MerchantUser
 from django.contrib.messages.views import SuccessMessageMixin
 from django.core.files.storage import FileSystemStorage
@@ -168,3 +168,7 @@ class MerchantUserUpdateView(SuccessMessageMixin, UpdateView):
         messages.success(self.request, "Merchant User Updated")
         return HttpResponseRedirect(reverse("merchant_list"))
 
+
+class ProductView(View):
+    def get(self, request, *args, **kwargs):
+        return render(request,"admin_templates/product_create.html")

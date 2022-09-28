@@ -45,7 +45,8 @@ urlpatterns = [
     path("merchant_list",AdminViews.MerchantUserListView.as_view(), name="merchant_list"),
     path("merchant_update/<slug:pk>",AdminViews.MerchantUserUpdateView.as_view(), name="merchant_update"),
 
-
+    #product_create
+    path("product_create", AdminViews.ProductView.as_view(), name="product_view")
 
 
    
