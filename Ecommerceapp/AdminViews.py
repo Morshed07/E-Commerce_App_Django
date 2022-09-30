@@ -171,4 +171,9 @@ class MerchantUserUpdateView(SuccessMessageMixin, UpdateView):
 
 class ProductView(View):
     def get(self, request, *args, **kwargs):
-        return render(request,"admin_templates/product_create.html")
+        categories=Categories.objects.filter(is_active=1)
+        categories_list=[]
+        for category in categories:
+            sub_category=SubCategories.objects.filter(is_active=1,category_id=category.id)
+            categories_list.append({"category":category,"sub_category": sub_category})
+        return render(request,"admin_templates/product_create.html",{"categories":categories_list})

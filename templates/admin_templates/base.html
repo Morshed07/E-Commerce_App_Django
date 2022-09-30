@@ -21,6 +21,9 @@
   <!-- Template CSS -->
   <link rel="stylesheet" href="{% static '/css/style.css'%}">
   <link rel="stylesheet" href="{% static '/css/components.css'%}">
+  <script src="https://<hostname.tld>/tinymce.min.js" referrerpolicy="origin"></script>
+  <script src="https://cdn.tiny.cloud/1/2mp8ffagpcj0dcn37yq6x46anwufzhojro43k4dpd2p1bghc/tinymce/6/plugins.min.js" referrerpolicy="origin"></script>
+  
 {% block custom_css %}
 {% endblock custom_css %}
 
@@ -42,7 +45,8 @@
 
   gtag('config', 'UA-94034622-3');
 </script>
-<!-- /END GA --></head>
+<!-- /END GA -->
+</head>
 
 <body>
   <div id="app">

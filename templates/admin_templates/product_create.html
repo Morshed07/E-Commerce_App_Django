@@ -16,8 +16,67 @@ Product Create
   <div class="col-lg-12">
     <div class="search-element">
       <div class="card">
-        <div class="body">
-            
+        <div class="card-body">
+            <div class="row">
+              <div class="col-lg-6">
+                <label>Product Name</label>
+                <input type="text" class="form-control" name="product name" placeholder="Product Name" id="title">
+              </div>
+              <div class="col-lg-6">
+                <label>Brand</label>
+                <input type="text" class="form-control" name="brand" placeholder="Brand Name">
+              </div>
+            </div>
+              <br>
+              <div class="row">
+                
+                    <div class="col-lg-6">
+                      <label>Url Slug</label>
+                      <input type="text" class="form-control" name="url_slug" placeholder="Url Slug" id="url_slug">
+                    </div>
+
+                    <div class="col-lg-6">
+                      <label>Category</label>
+                      <select name="sub_category" class="form-control">
+                        {% for category in categories %}
+                        <optgroup label={{category.category.title}}>
+                          {% for sub_cat in category.sub_category %}
+                        <option value="{{ sub_cat.id }}"> {{sub_cat.title}}</option>
+                          {% endfor %}
+                        </optgroup>
+                        {% endfor %}
+
+                      </select>
+                    </div>
+                  </div>
+                  <br>
+                  <div class="row">
+                    <div class="col-lg-6">
+                      <label> Max Price </label>
+                      <input type="text" class="form-control" name="product_max_price" placeholder="Max Price">
+                    </div>
+                    <div class="col-lg-6">
+                      <label> Discount Price </label>
+                      <input type="text" class="form-control" name="product_discount_price" placeholder="Discount Price">
+                    </div>
+                  </div>
+                  <br>
+                  <div class="row">
+                    <div class="col-lg-12">
+                      <label> Product Short Description </label>
+                      <textarea type="text" class="form-control" name="product_short_description" rows="10"></textarea>
+                    </div>
+                    
+                  </div>
+                  <br>
+                  <div class="row">
+                    <div class="col-lg-12">
+                      <label> Product Long Description </label>
+                      <textarea class="form-control" name="product_long_description" id="long_desc"></textarea>
+                    </div>
+                    
+                  </div>
+            </div>
         </div>
       </div>
     </div>
@@ -27,4 +86,14 @@ Product Create
 
 
 {% block custom_js %}
+
+<script src="https://cdn.tiny.cloud/1/2mp8ffagpcj0dcn37yq6x46anwufzhojro43k4dpd2p1bghc/tinymce/6/plugins.min.js" referrerpolicy="origin"></script>
+
+<script>
+  tinymce.init({
+    selector: 'long_desc',
+
+  });
+</script>
+
 {% endblock custom_js %}
